@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>My Stylish Page</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto&display=swap');
+
+  /* Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Roboto', sans-serif;
+    color: #222;
+    background-color: #fff;
+    line-height: 1.6;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  header {
+    background: #222;
+    color: white;
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  header .logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    cursor: default;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+  }
+
+  nav ul li a {
+    color: #fff;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  nav ul li a:hover {
+    color: #f39c12;
+  }
+
+  .hero {
+    min-height: 90vh;
+    background: linear-gradient(135deg, #f39c12 0%, #d35400 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 2rem;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+  }
+
+  .hero p {
+    font-size: 1.25rem;
+    max-width: 600px;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+  }
+
+  .content-section {
+    padding: 4rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+    color: #333;
+  }
+
+  .content-section h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #d35400;
+  }
+
+  .content-section p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+  }
+
+  /* Marquee of works */
+
+  .marquee-container {
+    overflow: hidden;
+    position: relative;
+    max-width: 100%;
+    margin: 2rem 0 4rem 0;
+    padding-left: 2rem;
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: 2rem;
+    animation: marqueeAnim 20s linear infinite;
+  }
+
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  .work-frame {
+    min-width: 200px;
+    height: 140px;
+    border: 4px solid #d35400;
+    box-shadow: 0 4px 12px rgba(211, 84, 0, 0.4);
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: white;
+  }
+
+  .work-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .work-frame:hover img {
+    transform: scale(1.05);
+  }
+
+  @keyframes marqueeAnim {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-200px * 7 - 14rem));
+    }
+  }
+
+  .footer {
+    background: #222;
+    color: #aaa;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    nav ul {
+      gap: 1rem;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+    .work-frame {
+      min-width: 140px;
+      height: 100px;
+    }
+    .marquee-track {
+      gap: 1rem;
+      animation-duration: 25s;
+    }
+    @keyframes marqueeAnim {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(calc(-140px * 7 - 7rem));
+      }
+    }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo">MyBrand</div>
+    <nav>
+      <ul>
+        <li><a href="#home" aria-label="Home">Home</a></li>
+        <li><a href="#about" aria-label="About">About</a></li>
+        <li><a href="#services" aria-label="Services">Services</a></li>
+        <li><a href="#works" aria-label="Our Works">Our Works</a></li>
+        <li><a href="#contact" aria-label="Contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <h1>Welcome to My Stylish Page</h1>
+    <p>Crafting beautiful and modern web designs that captivate your audience.</p>
+  </section>
+
+  <section class="content-section" id="about">
+    <h2>About Us</h2>
+    <p>We are passionate about design and development, focused on delivering unique user experiences with a blend of creativity and technical expertise.</p>
+  </section>
+
+  <section class="content-section" id="services">
+    <h2>Our Services</h2>
+    <p>From branding to full-stack web development, we provide tailored solutions that help your business grow and succeed online.</p>
+  </section>
+
+  <section class="content-section" id="works">
+    <h2>Our Works</h2>
+    <div class="marquee-container" aria-label="Scrolling showcase of work samples">
+      <div class="marquee-track" role="list">
+        <div class="work-frame" role="listitem">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Work sample 1" />
+        </div>
+        <div class="work-frame" role="listitem">
+          <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=400&q=80" alt="Work sample 2" />
+        </div>
+        <div class="work-frame" role="listitem">
+          <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Work sample 3" />
+        </div>
+        <div class="work-frame" role="listitem">
+          <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=400&q=80" alt="Work sample 4" />
+        </div>
+        <div class="work-frame" role="listitem">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" alt="Work sample 5" />
+        </div>
+        <div class="work-frame" role="listitem">
+          <img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?auto=format&fit=crop&w=400&q=80" alt="Work sample 6" />
+        </div>
+        <div class="work-frame" role="listitem">
+          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=400&q=80" alt="Work sample 7" />
+        </div>
+        <!-- Repeat first few items for smooth infinite scroll -->
+        <div class="work-frame" role="listitem">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Work sample 1" />
+        </div>
+        <div class="work-frame" role="listitem">
+          <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=400&q=80" alt="Work sample 2" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-section" id="contact">
+    <h2>Get in Touch</h2>
+    <p>Feel free to contact us via email or phone. We are excited to help you bring your ideas to life.</p>
+  </section>
+
+  <footer class="footer">
+    &copy; 2024 MyBrand. All rights reserved.
+  </footer>
+</body>
+</html>
+
