@@ -14,11 +14,18 @@
     box-sizing: border-box;
   }
 
+  html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  }
+
   body {
     font-family: 'Roboto', sans-serif;
     color: #222;
     background-color: #fff;
     line-height: 1.6;
+    overflow-x: hidden; /* prevent horizontal scroll */
   }
 
   a {
@@ -118,21 +125,22 @@
 
   /* === MARQUEE - FULL WIDTH, NOT AFFECTED BY HEADER LOGO === */
   .scrolling-wrapper {
-    position: relative;
-    width: 100vw; /* FULL viewport width */
+    width: 100vw;
     overflow: hidden;
-    background: transparent;
-    margin: 2rem 0 4rem 0;
-    padding: 0;
-    box-sizing: border-box;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    background: #f9f9f9;
+    padding: 2rem 0;
   }
 
   .scrolling-content {
     display: flex;
     gap: 2rem;
-    transform: translateX(0);
+    width: max-content;
     animation: scrollLeft 40s linear infinite;
-    will-change: transform;
   }
 
   .scrolling-content:hover {
@@ -164,10 +172,10 @@
   }
 
   @keyframes scrollLeft {
-    from {
+    0% {
       transform: translateX(0);
     }
-    to {
+    100% {
       transform: translateX(-50%);
     }
   }
